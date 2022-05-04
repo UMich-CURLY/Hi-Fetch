@@ -1,0 +1,11 @@
+pvporcupine
+SpeechRecognition
+openai
+gtts
+audio2numpy
+pyaudio
+simpleaudio
+scipy
+lifxlan
+xmltodict
+textdistance

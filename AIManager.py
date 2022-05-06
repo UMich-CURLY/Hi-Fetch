@@ -59,6 +59,11 @@ class AIManager:
         try:
             reason = response["choices"][0]["finish_reason"]
             text = response["choices"][0]["text"]
+
+            self.l.log(reason, "CHECK")
+            self.l.log(text, "CHECK")
+
+
             if reason != "stop":
                 self.l.log(f"Response didn't stop: {response}", "RUN")
                 raise ValueError
@@ -79,13 +84,16 @@ class AIManager:
                 self.between_strings("\nResponse: ", "\n", text)
             return result
                 
-        except KeyError:
+        except KeyError as e:
+            self.l.log(e, "DEBUG")
             self.l.log(f"KeyError in Response",
                        "DEBUG")
-        except AttributeError:
+        except AttributeError as e:
+            self.l.log(e, "DEBUG")
             self.l.log(f"AttributeError in Response",
                        "DEBUG")
-        except ValueError:
+        except ValueError as e:
+            self.l.log(e, "DEBUG")
             self.l.log(f"ValueError in Response",
                        "DEBUG")
 

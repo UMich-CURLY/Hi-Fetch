@@ -4,7 +4,8 @@ import pyaudio
 import struct
 
 def run():
-    porc = pvporcupine.create(keywords=["computer"])
+    # porc = pvporcupine.create(keywords=["computer"])
+    porc = pvporcupine.create(keyword_paths=["../Hey-Fetch_en_mac_v2_1_0.ppn"])
     pa = pyaudio.PyAudio()
 
     audio_stream = pa.open(

@@ -16,7 +16,8 @@ def rms(samps):
     return np.sqrt(np.mean(larger**2))
 
 def run():
-    porc = pvporcupine.create(keywords=["computer"])
+    porc = pvporcupine.create(keyword_paths=["../Hey-Fetch_en_mac_v2_1_0.ppn"])
+    # porc = pvporcupine.create(keywords=["computer"])
     pa = pyaudio.PyAudio()
     r = sr.Recognizer()
 

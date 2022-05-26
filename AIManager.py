@@ -4,6 +4,7 @@ import openai
 import re
 from queue import Queue
 from threading import Thread
+import subprocess
 
 class AIManager:
     l = None
@@ -25,24 +26,31 @@ class AIManager:
 
     def handle_command_async(self, text):
         prompt = self.prompt_text
+        # print("$$$$$$$$$$$$$$$$$$$$$$$$$$")
+        print("############################# before if: {}\n prompt name: {}".format(prompt, self.prompt_name))
 
         # Could add separate handlers for different prompts if desired...
         if self.prompt_name == "prompt1":
             prompt = prompt+text+"\n"+"Object:"
+
+        print("############################# after if: {}".format(prompt))
 
         response = openai.Completion.create(
             engine="davinci",
             prompt=prompt,
             temperature=self.temperature,
             max_tokens=self.resp_len,
-            top_p=1.0,
+            # top_p=1.0,
+            top_p=self.top_p,
             frequency_penalty=0.0,
             presence_penalty=0.0,
             stop=[self.stop_token]
         )
 
         result = {}
+        # currently using prompt1
         if self.prompt_name == "prompt1":
+            # run everytime
             result = self.parse_prompt1_response(response)
 
         if result is None:
@@ -57,6 +65,7 @@ class AIManager:
         # we'll try and filter out as many of these errors as possible
         # before attempting to parse the command
         try:
+            print("!!!!!!!!!!!!!!!!!! Response: {}".format(response))
             reason = response["choices"][0]["finish_reason"]
             text = response["choices"][0]["text"]
 
@@ -78,6 +87,10 @@ class AIManager:
             result = {}
             result["prompt_name"] = self.prompt_name
             result["object"] = self.between_strings(" ", "\n", text).lower()
+            # obj = result["object"].split("+")
+            obj = result["object"]
+            if (obj):
+                subprocess.call(['sh', './helper.sh', obj])
             result["state"] = \
                 self.between_strings("\nDesired State: ", "\n", text).lower()
             result["quip"] = \
@@ -113,6 +126,7 @@ class AIManager:
         # From test/val1.txt grabs val1
         prompt_name = path.split(prompt_file)[-1].split(".")[0]
         self.temperature = float(self.config[prompt_name]["temperature"])
+        self.top_p = float(self.config[prompt_name]["top_p"])
         self.resp_len = int(self.config[prompt_name]["response_length"])
         self.stop_token = self.config[prompt_name]["stop_token"]
         self.prompt_name = prompt_name

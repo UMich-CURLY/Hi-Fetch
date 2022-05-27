@@ -1,12 +1,12 @@
 Fetch's voice module.
 
-Prompt: can you show me where is the bathroom
+Prompt: can you show me where is the painting 1?
 Object: painting1
 Desired State: 1
 Response: If you go straight here, and turn left, then turn right. The bathroom should be on you righthand side.
 <|endoftext|>
 
-Prompt: can you show me where is the male bathroom
+Prompt: I want to go to painting 1 first and then painting 2.
 Object: painting1+painting2
 Desired State: 1
 Response: Male bathroom is on the lefthand.

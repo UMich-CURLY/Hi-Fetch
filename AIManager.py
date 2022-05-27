@@ -16,6 +16,7 @@ class AIManager:
         self.display_man = display_man
         self.sound_man = sound_man
         self.result_outputs = Queue()
+        self.valid_command = {"painting1": 0, "painting1+painting2": 0}
 
     # This is called from the main thread, so we want to pass it off
     # to a separate thread to not hang the program
@@ -89,8 +90,10 @@ class AIManager:
             result["object"] = self.between_strings(" ", "\n", text).lower()
             # obj = result["object"].split("+")
             obj = result["object"]
-            if (obj):
+            if (obj in self.valid_command):
+                print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
                 subprocess.call(['sh', './helper.sh', obj])
+                print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
             result["state"] = \
                 self.between_strings("\nDesired State: ", "\n", text).lower()
             result["quip"] = \

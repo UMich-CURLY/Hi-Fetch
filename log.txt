@@ -1,0 +1,290 @@
+DEBUG: Base RMS Level: 51.72451969327506
+RUN: Started to listen...
+RUN: Wakeword Detected. Waiting for speech.
+DEBUG: You started talking!
+DEBUG: Done talking. Transcribing...
+RUN: You said: how are you doing
+############################# before if: Fetch's voice module.
+
+Prompt: can you show me where is the bathroom
+Object: places
+Desired State: 1
+Response: If you go straight here, and turn left, then turn right. The bathroom should be on you righthand side.
+<|endoftext|>
+
+Prompt:
+ prompt name: prompt1
+############################# after if: Fetch's voice module.
+
+Prompt: can you show me where is the bathroom
+Object: places
+Desired State: 1
+Response: If you go straight here, and turn left, then turn right. The bathroom should be on you righthand side.
+<|endoftext|>
+
+Prompt:how are you doing
+Object:
+!!!!!!!!!!!!!!!!!! Response: {
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "logprobs": null,
+      "text": "places\nDesired State: 1\nResponse: I am doing fine.\n"
+    }
+  ],
+  "created": 1653244973,
+  "id": "cmpl-5AkpRFTrniGIE6EvKJ7JRlUHPh3OL",
+  "model": "davinci",
+  "object": "text_completion"
+}
+ERROR for msg stop: Unknown Logger Level
+ERROR for msg places
+Desired State: 1
+Response: I am doing fine.
+: Unknown Logger Level
+DEBUG: Response: {'prompt_name': 'prompt1', 'object': 'state: 1', 'state': '1', 'quip': 'I am doing fine.'}
+DEBUG: LIFX not enabled but LIFX device requested
+RUN: Wakeword Detected. Waiting for speech.
+DEBUG: You started talking!
+DEBUG: Done talking. Transcribing...
+RUN: You said: can you introduce some art for me
+############################# before if: Fetch's voice module.
+
+Prompt: can you show me where is the bathroom
+Object: places
+Desired State: 1
+Response: If you go straight here, and turn left, then turn right. The bathroom should be on you righthand side.
+<|endoftext|>
+
+Prompt:
+ prompt name: prompt1
+############################# after if: Fetch's voice module.
+
+Prompt: can you show me where is the bathroom
+Object: places
+Desired State: 1
+Response: If you go straight here, and turn left, then turn right. The bathroom should be on you righthand side.
+<|endoftext|>
+
+Prompt:can you introduce some art for me
+Object:
+!!!!!!!!!!!!!!!!!! Response: {
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "logprobs": null,
+      "text": "places\nDesired State: 1\nResponse: The art museum is located on the north side of the city. It is a large building with a dome on top.\n"
+    }
+  ],
+  "created": 1653244988,
+  "id": "cmpl-5AkpgHAEXwzZLHnn4iRd9iVUpURs1",
+  "model": "davinci",
+  "object": "text_completion"
+}
+ERROR for msg stop: Unknown Logger Level
+ERROR for msg places
+Desired State: 1
+Response: The art museum is located on the north side of the city. It is a large building with a dome on top.
+: Unknown Logger Level
+DEBUG: Response: {'prompt_name': 'prompt1', 'object': 'state: 1', 'state': '1', 'quip': 'The art museum is located on the north side of the city. It is a large building with a dome on top.'}
+DEBUG: LIFX not enabled but LIFX device requested
+RUN: Wakeword Detected. Waiting for speech.
+DEBUG: You started talking!
+DEBUG: Done talking. Transcribing...
+RUN: You said: who is Franco
+############################# before if: Fetch's voice module.
+
+Prompt: can you show me where is the bathroom
+Object: places
+Desired State: 1
+Response: If you go straight here, and turn left, then turn right. The bathroom should be on you righthand side.
+<|endoftext|>
+
+Prompt:
+ prompt name: prompt1
+############################# after if: Fetch's voice module.
+
+Prompt: can you show me where is the bathroom
+Object: places
+Desired State: 1
+Response: If you go straight here, and turn left, then turn right. The bathroom should be on you righthand side.
+<|endoftext|>
+
+Prompt:who is Franco
+Object:
+!!!!!!!!!!!!!!!!!! Response: {
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "logprobs": null,
+      "text": " people\nDesired State: 1\nResponse: Franco is my brother.\n"
+    }
+  ],
+  "created": 1653245007,
+  "id": "cmpl-5AkpzW8nJKrXJfGXGEWqF0Qo0J1kr",
+  "model": "davinci",
+  "object": "text_completion"
+}
+ERROR for msg stop: Unknown Logger Level
+ERROR for msg  people
+Desired State: 1
+Response: Franco is my brother.
+: Unknown Logger Level
+DEBUG: Response: {'prompt_name': 'prompt1', 'object': 'people', 'state': '1', 'quip': 'Franco is my brother.'}
+DEBUG: LIFX not enabled but LIFX device requested
+RUN: Wakeword Detected. Waiting for speech.
+DEBUG: You started talking!
+DEBUG: Done talking. Transcribing...
+RUN: You said: how can I get to the bathroom
+############################# before if: Fetch's voice module.
+
+Prompt: can you show me where is the bathroom
+Object: places
+Desired State: 1
+Response: If you go straight here, and turn left, then turn right. The bathroom should be on you righthand side.
+<|endoftext|>
+
+Prompt:
+ prompt name: prompt1
+############################# after if: Fetch's voice module.
+
+Prompt: can you show me where is the bathroom
+Object: places
+Desired State: 1
+Response: If you go straight here, and turn left, then turn right. The bathroom should be on you righthand side.
+<|endoftext|>
+
+Prompt:how can I get to the bathroom
+Object:
+!!!!!!!!!!!!!!!!!! Response: {
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "logprobs": null,
+      "text": "places\nDesired State: 1\nResponse: If you go straight here, and turn left, then turn right. The bathroom should be on you righthand side.\n"
+    }
+  ],
+  "created": 1653245023,
+  "id": "cmpl-5AkqF5PnViWhKV5bm9eOIHIBvC1Vw",
+  "model": "davinci",
+  "object": "text_completion"
+}
+ERROR for msg stop: Unknown Logger Level
+ERROR for msg places
+Desired State: 1
+Response: If you go straight here, and turn left, then turn right. The bathroom should be on you righthand side.
+: Unknown Logger Level
+DEBUG: Response: {'prompt_name': 'prompt1', 'object': 'state: 1', 'state': '1', 'quip': 'If you go straight here, and turn left, then turn right. The bathroom should be on you righthand side.'}
+DEBUG: LIFX not enabled but LIFX device requested
+RUN: Wakeword Detected. Waiting for speech.
+DEBUG: You started talking!
+DEBUG: Done talking. Transcribing...
+DEBUG: No audio found in segment
+RUN: Wakeword Detected. Waiting for speech.
+DEBUG: You started talking!
+DEBUG: Done talking. Transcribing...
+RUN: You said: what else can you do
+############################# before if: Fetch's voice module.
+
+Prompt: can you show me where is the bathroom
+Object: places
+Desired State: 1
+Response: If you go straight here, and turn left, then turn right. The bathroom should be on you righthand side.
+<|endoftext|>
+
+Prompt:
+ prompt name: prompt1
+############################# after if: Fetch's voice module.
+
+Prompt: can you show me where is the bathroom
+Object: places
+Desired State: 1
+Response: If you go straight here, and turn left, then turn right. The bathroom should be on you righthand side.
+<|endoftext|>
+
+Prompt:what else can you do
+Object:
+!!!!!!!!!!!!!!!!!! Response: {
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "logprobs": null,
+      "text": " places\nDesired State: 1\nResponse: I can tell you where the bathroom is.\n"
+    }
+  ],
+  "created": 1653245047,
+  "id": "cmpl-5Akqd2r5b4Da6pBAMli7Vlc2vS7xn",
+  "model": "davinci",
+  "object": "text_completion"
+}
+ERROR for msg stop: Unknown Logger Level
+ERROR for msg  places
+Desired State: 1
+Response: I can tell you where the bathroom is.
+: Unknown Logger Level
+DEBUG: Response: {'prompt_name': 'prompt1', 'object': 'places', 'state': '1', 'quip': 'I can tell you where the bathroom is.'}
+DEBUG: LIFX not enabled but LIFX device requested
+RUN: Wakeword Detected. Waiting for speech.
+DEBUG: You started talking!
+DEBUG: Done talking. Transcribing...
+DEBUG: No audio found in segment
+RUN: Wakeword Detected. Waiting for speech.
+DEBUG: You started talking!
+DEBUG: Done talking. Transcribing...
+RUN: You said: how is panting
+############################# before if: Fetch's voice module.
+
+Prompt: can you show me where is the bathroom
+Object: places
+Desired State: 1
+Response: If you go straight here, and turn left, then turn right. The bathroom should be on you righthand side.
+<|endoftext|>
+
+Prompt:
+ prompt name: prompt1
+############################# after if: Fetch's voice module.
+
+Prompt: can you show me where is the bathroom
+Object: places
+Desired State: 1
+Response: If you go straight here, and turn left, then turn right. The bathroom should be on you righthand side.
+<|endoftext|>
+
+Prompt:how is panting
+Object:
+!!!!!!!!!!!!!!!!!! Response: {
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "logprobs": null,
+      "text": "states\nDesired State: 1\nResponse: Panting is a way of breathing in and out quickly.\n"
+    }
+  ],
+  "created": 1653245068,
+  "id": "cmpl-5Akqy2MtowamVRDuzObxReYDIaGRN",
+  "model": "davinci",
+  "object": "text_completion"
+}
+ERROR for msg stop: Unknown Logger Level
+ERROR for msg states
+Desired State: 1
+Response: Panting is a way of breathing in and out quickly.
+: Unknown Logger Level
+DEBUG: Response: {'prompt_name': 'prompt1', 'object': 'state: 1', 'state': '1', 'quip': 'Panting is a way of breathing in and out quickly.'}
+DEBUG: LIFX not enabled but LIFX device requested
+Traceback (most recent call last):
+  File "/Users/tony_stark/Library/Mobile Documents/com~apple~CloudDocs/University files/UMich/UMMA_Robotics_NLP/Lab_Git/Hi-Fetch/Run.py", line 52, in <module>
+    display_man.handle_gui_events()
+  File "/Users/tony_stark/Library/Mobile Documents/com~apple~CloudDocs/University files/UMich/UMMA_Robotics_NLP/Lab_Git/Hi-Fetch/DisplayManager.py", line 49, in handle_gui_events
+    r = DisplayHelpers.do_start_updates(
+  File "/Users/tony_stark/Library/Mobile Documents/com~apple~CloudDocs/University files/UMich/UMMA_Robotics_NLP/Lab_Git/Hi-Fetch/DisplayHelpers.py", line 66, in do_start_updates
+    last_color = frame.cget("background")
+  File "/Users/tony_stark/miniforge3/lib/python3.9/tkinter/__init__.py", line 1652, in cget
+    return self.tk.call(self._w, 'cget', '-' + key)
+_tkinter.TclError: invalid command name ".!frame"

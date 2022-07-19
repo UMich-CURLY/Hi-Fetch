@@ -89,11 +89,11 @@ class AIManager:
             result["prompt_name"] = self.prompt_name
             result["object"] = self.between_strings(" ", "\n", text).lower()
             # obj = result["object"].split("+")
-            obj = result["object"]
-            if (obj in self.valid_command):
-                print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-                subprocess.call(['sh', './helper.sh', obj])
-                print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+            # obj = result["object"]
+            # if (obj in self.valid_command):
+            #     print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+            #     subprocess.call(['sh', './helper.sh', obj])
+            #     print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
             result["state"] = \
                 self.between_strings("\nDesired State: ", "\n", text).lower()
             result["quip"] = \

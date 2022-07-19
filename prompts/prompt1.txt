@@ -1,15 +1,57 @@
 Fetch's voice module.
 
-Prompt: can you show me where is the painting 1?
-Object: painting1
+Prompt: what is the fun project
+Object: intro
 Desired State: 1
-Response: If you go straight here, and turn left, then turn right. The bathroom should be on you righthand side.
+Response: A U-M class held in the art museum, taught by artist Mark Tucker of FestiFools fame. Students choose a work from UMMA’s collection and bring it to life as a large interactive sculpture. Museum visitors can first add to the scene and second explore the museum to find the inspirational objects. 
 <|endoftext|>
 
-Prompt: I want to go to painting 1 first and then painting 2.
-Object: painting1+painting2
+Prompt: what is fun about
+Object: intro
 Desired State: 1
-Response: Male bathroom is on the lefthand.
+Response: It’s about making something bigger than you could on your own. Growing a communal project, making collective decisions, and learning through the conversations along the way. We’re figuring out the final product as we go.
+<|endoftext|>
+
+Prompt: how do I get involved
+Object: intro
+Desired State: 1
+Response: You can drop in and watch the artists when galleries are open. Ask questions!
+<|endoftext|>
+
+Prompt: can I drop my kids off all day
+Object: intro
+Desired State: 1
+Response: Nope! This is a U-M class. Although it’s a public building, we’re working on our course project and need to focus. You can sign up for a 2 hour slot on Fri or Sat and make art with us then!
+<|endoftext|>
+
+Prompt: can I stay myself all day
+Object: intro
+Desired State: 1
+Response: Nope! This is a U-M class. Although it’s a public building, we’re working on our course project and need to focus. You can sign up for a 2 hour slot on Fri or Sat and make art with us then!
+<|endoftext|>
+
+Prompt: are there anything else I should know
+Object: intro
+Desired State: 1
+Response: Please let us know if you have a touch-based sensitivity to gluten. The glue used in our papier-mâché process is made with wheat flour.
+<|endoftext|>
+
+Prompt: what if there is an emergency while I'm at the museum
+Object: intro
+Desired State: 1
+Response: We are fortunate to have an in-house DPSS security team. They will instruct us in an emergency. Follow their lead. In a fire, we exit the building and proceed straight out to State Street. When clear, security will motion us back, after securing all artworks.
+<|endoftext|>
+
+Prompt: what can you do
+Object: intro
+Desired State: 1
+Response: You can ask me some questions about the FUN museum! Such as what is the fun project? or what is the standing man on the map?
+<|endoftext|>
+
+Prompt: can you tell me the names of those art works
+Object: intro
+Desired State: 1
+Response: Looking at the map, from left to right in the path, the names are: standing man, wooden, painting.
 <|endoftext|>
 
 Prompt:

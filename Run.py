@@ -28,7 +28,7 @@ if __name__ == "__main__":
     audio_man = AudioManager(l, config_file, display_man, sound_man)
     # Passes transcribed audio to GPT-3, and parses the response
     ai_man = AIManager(l, config_file, display_man, sound_man)
-    # Handles home automation tasks request by AIManager
+    # Handles art introduction & navigation tasks request by AIManager
     auto_man = AutomationManager(l, config_file, display_man)
     # Speaks the output from GPT-3
     voice_man = VoiceOutputManager(l, config_file, display_man)
@@ -40,6 +40,8 @@ if __name__ == "__main__":
                 ai_man.handle_command(transcription)
             if not ai_man.result_outputs.empty():
                 command = ai_man.result_outputs.get()
+
+                # Handle automation (respond with specific art introduction etc.)
                 auto_man.handle_command(command)
                 voice_man.handle_command(command)
             else:

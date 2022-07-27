@@ -51,7 +51,67 @@ Response: You can ask me some questions about the FUN museum! Such as what is th
 Prompt: can you tell me the names of those art works
 Object: intro
 Desired State: 1
-Response: Looking at the map, from left to right in the path, the names are: standing man, wooden, painting.
+Response: Looking at the map, from left to right in the path, the names are: standing figure, heather's fragrance, the student, little torso, pillow, willow, dark presence 3, blue and white ware open storage ceramic, hiroshima nagaski 50, and s2 p2 r ap4.
+<|endoftext|>
+
+Prompt: what is standing figure
+Object: intro
+Desired State: 1
+Response: The figure in this bronze sculpture looks at ease, perhaps because their body is so thin and elongated.
+<|endoftext|>
+
+Prompt: what is heather's fragrance
+Object: intro
+Desired State: 1
+Response: The title of this sculpture is called Heather's Fragrance. It's spirals are carved out of the root of a heather plant. 
+<|endoftext|>
+
+Prompt: what is the student
+Object: intro
+Desired State: 1
+Response: The painter Gerome Kamrowski was both a student and teacher of Surrealism. The forms here might evoke microscopic life or a seated figure. 
+<|endoftext|>
+
+Prompt: what is little torso
+Object: intro
+Desired State: 1
+Response: This small shiny sculpture is made of many ovals, which distort reflections like a fun house mirror.  
+<|endoftext|>
+
+Prompt: what is pillow
+Object: intro
+Desired State: 1
+Response: This pillow is over one thousand years old. It was meant to protect the fancy hair styles of wealthy women. 
+<|endoftext|>
+
+Prompt: what is Willow
+Object: intro
+Desired State: 1
+Response: Ink woodblock prints are carved backwards and then presed onto paper. Imagine digging out so many curved lines of varying thicknesses! 
+<|endoftext|>
+
+Prompt: what is dark presence
+Object: intro
+Desired State: 1
+Response: Louise Nevelson gathered objects as she walked through New York City. She then painted her large assemblages either all black, white, or gold. 
+<|endoftext|>
+
+Prompt: what is blue and white ware open storage ceramic
+Object: intro
+Desired State: 1
+Response: This porcelain serving plate features a lion romping through peonies. Can you picture it on your table? 
+<|endoftext|>
+
+Prompt: what is Hiroshima Nagasaki
+Object: intro
+Desired State: 1
+Response: On the 50th anniversary of the bombing of Hiroshima-Nagasaki, Japanese designer Shigeo Fukuda sends a clear protest message saying "No" to war violence. 
+<|endoftext|>
+
+Prompt: what is s 2 p 2 r a p 4
+Object: intro
+Desired State: 1
+Response: Artist Roxy Paine programmed a computer to plop red plastic out of a machine. Each iteration resulted in a uniquely-formed pile. 
 <|endoftext|>
 
 Prompt:

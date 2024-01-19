@@ -5,7 +5,7 @@ import re
 from queue import Queue
 from threading import Thread
 # import subprocess
-import rospy
+# import rospy
 from std_msgs.msg import String
 
 class AIManager:
@@ -20,8 +20,8 @@ class AIManager:
         self.result_outputs = Queue()
         self.valid_command = {"painting1": 0, "painting1+painting2": 0}
 
-        rospy.init_node("send_audio", anonymous=True)
-        self.pub = rospy.Publisher("audio", String, queue_size=100)
+        # rospy.init_node("send_audio", anonymous=True)
+        # self.pub = rospy.Publisher("audio", String, queue_size=100)
 
     # This is called from the main thread, so we want to pass it off
     # to a separate thread to not hang the program
@@ -93,19 +93,19 @@ class AIManager:
             result = {}
             result["prompt_name"] = self.prompt_name
             result["object"] = self.between_strings(" ", "\n", text).lower()
-            # obj = result["object"].split("+")
-            # obj = result["object"]
-            # if (obj in self.valid_command):
-            #     print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-            #     subprocess.call(['sh', './helper.sh', obj])
-            #     print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-            msg = String()
-            msg.data = obj 
-            print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-            print(obj)
-            print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-            if (obj):
-                self.pub.publish(msg)
+            obj = result["object"].split("+")
+            obj = result["object"]
+            if (obj in self.valid_command):
+                print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+                subprocess.call(['sh', './helper.sh', obj])
+                print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+            # msg = String()
+            # msg.data = obj 
+            # print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+            # print(obj)
+            # print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+            # if (obj):
+            #     self.pub.publish(msg)
                 
             result["state"] = \
                 self.between_strings("\nDesired State: ", "\n", text).lower()

@@ -50,6 +50,8 @@ class AudioManager:
         
     def sample_loop(self):
         pa = pyaudio.PyAudio()
+        print(pa.get_default_input_device_info())
+        print(pa.get_default_host_api_info())
         audio_stream = pa.open(
             rate=self.fs,
             channels=1,
@@ -69,6 +71,7 @@ class AudioManager:
 
     def run(self):
         r = sr.Recognizer()
+        r.dynamic_energy_threshold = True
         self.l.log("Started to listen...", "RUN")
         wait_speech_nsamp = int(self.fs*self.wait_speech_buffer_time)
         transcription_nsamp = int(self.fs*self.transcription_buffer_time)

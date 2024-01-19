@@ -10,7 +10,7 @@ label_frame_h_pct = 0.2
 color_change_step_time = 0.1
 transition_step_time = color_change_step_time/4
 main_background_color = "#141414"
-state_texts = ["Waiting...", "Listening...",
+state_texts = ["Say: Hi/Hey Fetch!..", "Listening, Ask your question now!...",
                "Keep talking...", "Transcribing..."]
 
 label_w_pct = 0.9

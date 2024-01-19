@@ -21,6 +21,7 @@ def run():
     # porc = pvporcupine.create(keywords=["computer"])
     pa = pyaudio.PyAudio()
     r = sr.Recognizer()
+    r.dynamic_energy_threshold = True
 
     # Computed Params
     transcription_nsamp = int(porc.sample_rate*transcription_buffer_time)

@@ -39,7 +39,7 @@ def make_start_window(root, w, h):
 
     for i in range(n_frames-1):
         frame = tk.Frame(root, bg=rand_hex())
-        x = np.int(frame_x_vals[i])
+        x = int(frame_x_vals[i])
         frame.place(x=int(frame_x_vals[i]),y=int(frame_y_vals[i]),
                     width=int(frame_w_vals[i]),
                     height=int(frame_h_vals[i]))

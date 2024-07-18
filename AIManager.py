@@ -5,8 +5,8 @@ import re
 from queue import Queue
 from threading import Thread
 # import subprocess
-import rospy
-from std_msgs.msg import String
+# import rospy
+# from std_msgs.msg import String
 
 class AIManager:
     l = None
@@ -20,8 +20,8 @@ class AIManager:
         self.result_outputs = Queue()
         self.valid_command = {"painting1": 0, "painting1+painting2": 0}
 
-        rospy.init_node("send_audio", anonymous=True)
-        self.pub = rospy.Publisher("audio", String, queue_size=100)
+        # rospy.init_node("send_audio", anonymous=True)
+        # self.pub = rospy.Publisher("audio", String, queue_size=100)
 
     # This is called from the main thread, so we want to pass it off
     # to a separate thread to not hang the program

@@ -1,4 +1,4 @@
-pvporcupine
+pvporcupine==2.1.0
 SpeechRecognition
 openai
 gtts

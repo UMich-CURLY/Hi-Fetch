@@ -20,9 +20,9 @@ class AudioManager:
 
     def __init__(self, logger, config_file, display_man, sound_man):
         # Porcupine handles the wakewords
-        # self.porc = pvporcupine.create(access_key="ozyxNjip5m0gzCt7axK2B9+x1UOnzZrYIEJs0eSJmp4KTKh7xbC6sg==", keywords=["Hey Fetch"])
+        self.porc = pvporcupine.create(access_key="Cp03DvwXZI51uNYs1gq9YDnfmO3K9n5pru+cIuYEHf1NPjhWMwKezw==", keywords=["hey google"])
         # self.porc = pvporcupine.create(access_key="ozyxNjip5m0gzCt7axK2B9+x1UOnzZrYIEJs0eSJmp4KTKh7xbC6sg==", keyword_paths=["Hey-Fetch_en_mac_v2_1_0.ppn"])
-        self.porc = pvporcupine.create(access_key="ozyxNjip5m0gzCt7axK2B9+x1UOnzZrYIEJs0eSJmp4KTKh7xbC6sg==", keyword_paths=["Hey-Fetch_en_linux_v2_1_0.ppn"])
+        # self.porc = pvporcupine.create(access_key="ozyxNjip5m0gzCt7axK2B9+x1UOnzZrYIEJs0eSJmp4KTKh7xbC6sg==", keyword_paths=["Hey-Fetch_en_linux_v2_1_0.ppn"])
         self.fs = self.porc.sample_rate
         self.frame_len = self.porc.frame_length
         self.l = logger

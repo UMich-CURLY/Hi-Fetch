@@ -4,6 +4,9 @@ import openai
 import re
 from queue import Queue
 from threading import Thread
+from openai import AzureOpenAI
+from dotenv import load_dotenv
+import os
 # import subprocess
 # import rospy
 # from std_msgs.msg import String
@@ -14,7 +17,9 @@ class AIManager:
         self.l = logger
         self.config = configparser.ConfigParser()
         self.config.read(config_file)
+        self.load_env_file()
         self.parse_config()
+        self.create_azure_client()
         self.display_man = display_man
         self.sound_man = sound_man
         self.result_outputs = Queue()
@@ -41,8 +46,24 @@ class AIManager:
 
         print("############################# after if: {}".format(prompt))
 
-        response = openai.Completion.create(
-            engine="davinci",
+        # response = openai.Completion.create(
+        #     # engine="davinci",
+        #     model="gpt-3.5-turbo",
+        #     # model="gpt-3.5-turbo-instruct",
+        #     prompt=prompt,
+        #     temperature=self.temperature,
+        #     max_tokens=self.resp_len,
+        #     # top_p=1.0,
+        #     top_p=self.top_p,
+        #     frequency_penalty=0.0,
+        #     presence_penalty=0.0,
+        #     stop=[self.stop_token]
+        # )
+        print("promp!!!! : ",prompt )
+        response = self.client.completions.create(
+            # model="gpt-4o",
+            # model="gpt-3.5-turbo-instruct",
+            model=os.environ['model'],
             prompt=prompt,
             temperature=self.temperature,
             max_tokens=self.resp_len,
@@ -55,6 +76,8 @@ class AIManager:
 
         result = {}
         # currently using prompt1
+        print("prompt1 : ", prompt1)
+        print("response.choices[0].text.strip() : ", response.choices[0].text.strip())
         if self.prompt_name == "prompt1":
             # run everytime
             result = self.parse_prompt1_response(response)
@@ -158,3 +181,20 @@ class AIManager:
         search_re = start+"(.*)"+end
         return re.search(search_re, text).group(1)
         
+    def load_env_file(self):
+        # Attempt to load the .env file and handle any errors
+        try:
+            if load_dotenv('.env') is False:
+                raise TypeError
+        except TypeError:
+            print('Unable to load .env file.')
+            quit()
+
+    def create_azure_client(self):
+        self.client = AzureOpenAI(
+            api_key=os.environ['OPENAI_API_KEY'],  
+            api_version=os.environ['API_VERSION'],
+            azure_endpoint=os.environ['openai_api_base'],
+            organization=os.environ['OPENAI_organization']
+        )
+        print("end point : ", os.environ['openai_api_base'])

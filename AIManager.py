@@ -42,7 +42,7 @@ class AIManager:
         print("############################# after if: {}".format(prompt))
 
         response = openai.Completion.create(
-            engine="davinci",
+            engine="davinci-002",
             prompt=prompt,
             temperature=self.temperature,
             max_tokens=self.resp_len,
@@ -99,13 +99,13 @@ class AIManager:
             #     print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
             #     subprocess.call(['sh', './helper.sh', obj])
             #     print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-            msg = String()
-            msg.data = obj 
-            print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-            print(obj)
-            print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-            if (obj):
-                self.pub.publish(msg)
+            # msg = String()
+            # msg.data = obj 
+            # print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+            # print(obj)
+            # print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+            # if (obj):
+            #     self.pub.publish(msg)
                 
             result["state"] = \
                 self.between_strings("\nDesired State: ", "\n", text).lower()

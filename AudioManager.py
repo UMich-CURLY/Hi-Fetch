@@ -18,10 +18,12 @@ class AudioManager:
 
     output_queue = Queue()
 
+    text_or_speech_flag = None
+    
     def __init__(self, logger, config_file, display_man, sound_man):
         # Porcupine handles the wakewords
-        self.porc = pvporcupine.create(access_key="Cp03DvwXZI51uNYs1gq9YDnfmO3K9n5pru+cIuYEHf1NPjhWMwKezw==", keywords=["hey google"])
-        # self.porc = pvporcupine.create(access_key="ozyxNjip5m0gzCt7axK2B9+x1UOnzZrYIEJs0eSJmp4KTKh7xbC6sg==", keyword_paths=["Hey-Fetch_en_mac_v2_1_0.ppn"])
+        # self.porc = pvporcupine.create(access_key="ozyxNjip5m0gzCt7axK2B9+x1UOnzZrYIEJs0eSJmp4KTKh7xbC6sg==", keywords=["Hey Fetch"])
+        self.porc = pvporcupine.create(access_key="ozyxNjip5m0gzCt7axK2B9+x1UOnzZrYIEJs0eSJmp4KTKh7xbC6sg==", keyword_paths=["Hey-Fetch_en_mac_v2_1_0.ppn"])
         # self.porc = pvporcupine.create(access_key="ozyxNjip5m0gzCt7axK2B9+x1UOnzZrYIEJs0eSJmp4KTKh7xbC6sg==", keyword_paths=["Hey-Fetch_en_linux_v2_1_0.ppn"])
         self.fs = self.porc.sample_rate
         self.frame_len = self.porc.frame_length
@@ -110,16 +112,24 @@ class AudioManager:
                 self.display_man.talking_finished()
                 self.l.log("Done talking. Transcribing...", "DEBUG")
                 audio = sr.AudioData(to_transcribe, self.fs, 2)
-                try:
+                
+                # try:
+                if self.text_or_speech_flag : 
                     transcription = r.recognize_google(audio)
-                    self.l.log(f"You said: {transcription}", "RUN")
-                    self.output_queue.put(transcription)
-                    self.display_man.transcription_finished(transcription)
-                    self.sound_man.play_blocking("transcription success")
-                except sr.UnknownValueError:
-                    self.l.log("No audio found in segment", "DEBUG")
-                    self.display_man.transcription_finished("")
-                    self.sound_man.play_blocking("transcription failed")
+                else:
+                    transcription = "how do I get involved"
+                    
+                self.l.log(f"You said: {transcription}", "RUN")
+                self.output_queue.put(transcription)
+                # print("text : ", transcription)
+                self.display_man.transcription_finished(transcription)
+                self.sound_man.play_blocking("transcription success")
+                
+                # except sr.UnknownValueError:
+                #     self.l.log("No audio found in segment", "DEBUG")
+                #     print("text : ", "")
+                #     self.display_man.transcription_finished("")
+                #     self.sound_man.play_blocking("transcription failed")
                 
             else:
                 # Eventually implement continuous RMS updating here

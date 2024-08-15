@@ -33,13 +33,13 @@ class AIManager:
     def handle_command_async(self, text):
         prompt = self.prompt_text
         # print("$$$$$$$$$$$$$$$$$$$$$$$$$$")
-        print("############################# before if: {}\n prompt name: {}".format(prompt, self.prompt_name))
+        # print("############################# before if: {}\n prompt name: {}".format(prompt, self.prompt_name))
 
         # Could add separate handlers for different prompts if desired...
         if self.prompt_name == "prompt1":
             prompt = prompt+text+"\n"+"Object:"
 
-        print("############################# after if: {}".format(prompt))
+        # print("############################# after if: {}".format(prompt))
 
         response = openai.Completion.create(
             engine="davinci-002",
@@ -71,7 +71,7 @@ class AIManager:
         # we'll try and filter out as many of these errors as possible
         # before attempting to parse the command
         try:
-            print("!!!!!!!!!!!!!!!!!! Response: {}".format(response))
+            # print("!!!!!!!!!!!!!!!!!! Response: {}".format(response))
             reason = response["choices"][0]["finish_reason"]
             text = response["choices"][0]["text"]
 

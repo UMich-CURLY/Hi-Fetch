@@ -5,7 +5,7 @@ import re
 from queue import Queue
 from threading import Thread
 # import subprocess
-# import rospy
+import rospy
 # from std_msgs.msg import String
 
 class AIManager:

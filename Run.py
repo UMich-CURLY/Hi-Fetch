@@ -9,8 +9,11 @@ from SoundManager import SoundManager
 import configparser
 
 import time
+import rospy
 
 if __name__ == "__main__":
+    rospy.init_node('audio_manager_node', anonymous=True)
+    
     config_file = "config.ini"
     config = configparser.ConfigParser()
     config.read(config_file)
@@ -36,46 +39,48 @@ if __name__ == "__main__":
     try:
         text_or_speech_flag = False
         while True:
-            if audio_man.text_or_speech_flag:
-                #1. using speech input
-                if not audio_man.output_queue.empty():
-                    transcription = audio_man.output_queue.get()
-                    
-                    ai_man.handle_command(transcription)
-            else:
-                #2. using text input / reading string msg from rosnode
-                if not audio_man.output_queue.empty():
-                    audio_man.output_queue.get()
-                transcription = "how do I get involved"
-                ai_man.handle_command(transcription)
-                audio_man.stop()
-                audio_man = AudioManager(l, config_file, display_man, sound_man)
-                audio_man.text_or_speech_flag = True
-                # print("audio_man.text_or_speech_flag : ", audio_man.text_or_speech_flag)
-                
-                
-                
-            if not ai_man.result_outputs.empty():
-                command = ai_man.result_outputs.get()
-
-                # Handle automation (respond with specific art introduction etc.)
-                auto_man.handle_command(command)
-                voice_man.handle_command(command)
-            else:
-                # The display needs to update on the main thread, so this
-                # handle_gui_events function needs to be called frequently
-                # to make animations look good.
-                
-                if config["Display"]["use_display"] == "True":
-                    if audio_man.text_or_speech_flag:
-                        display_man.input_txt = transcription
-                    else:
-                        display_man.input_txt = "how do I get involved"
+            while not rospy.is_shutdown():
+                if audio_man.text_or_speech_flag:
+                    #1. using speech input
+                    if not audio_man.output_queue.empty():
+                        transcription = audio_man.output_queue.get()
                         
-                    display_man.handle_gui_events()
-                
-                time.sleep(0.01)
-                
+                        ai_man.handle_command(transcription)
+                else:
+                    #2. using text input / reading string msg from rosnode
+                    if not audio_man.output_queue.empty():
+                        audio_man.output_queue.get()
+                    transcription = "how do I get involved"
+                    ai_man.handle_command(transcription)
+                    audio_man.stop()
+                    audio_man = AudioManager(l, config_file, display_man, sound_man)
+                    audio_man.text_or_speech_flag = True
+                    # print("audio_man.text_or_speech_flag : ", audio_man.text_or_speech_flag)
+                    
+                    
+                    
+                if not ai_man.result_outputs.empty():
+                    command = ai_man.result_outputs.get()
+
+                    # Handle automation (respond with specific art introduction etc.)
+                    auto_man.handle_command(command)
+                    voice_man.handle_command(command)
+                else:
+                    # The display needs to update on the main thread, so this
+                    # handle_gui_events function needs to be called frequently
+                    # to make animations look good.
+                    
+                    if config["Display"]["use_display"] == "True":
+                        if audio_man.text_or_speech_flag:
+                            display_man.input_txt = transcription
+                        else:
+                            display_man.input_txt = "how do I get involved"
+                            
+                        display_man.handle_gui_events()
+                    
+                    time.sleep(0.01)
+                    rospy.sleep(0.01)
+                    
     except KeyboardInterrupt:
         # AudioManager is the only module with a separate loop that needs
         # to stop in order to have a clean exit

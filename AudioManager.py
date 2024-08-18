@@ -7,6 +7,8 @@ from threading import Thread
 import time
 import configparser
 from queue import Queue
+import rospy
+from std_msgs.msg import String
 
 class AudioManager:
     l = None
@@ -49,6 +51,8 @@ class AudioManager:
         # Continuously wait for wakeword in this thread
         run_thread = Thread(target = self.run)
         run_thread.start()
+        
+        rospy.Subscriber('text_or_speech_topic', String, self.flag_callback)
         
     def sample_loop(self):
         pa = pyaudio.PyAudio()
@@ -173,4 +177,12 @@ class AudioManager:
         self.dev_thresh = float(self.config["Audio"]["rms_deviation_thresh"])
         self.initial_thresh_time = \
             float(self.config["Audio"]["initial_thresh_time"])
+
+    def flag_callback(self, msg):
+        if msg.data == "certain sentence":
+            self.text_or_speech_flag = True
+        else:
+            self.text_or_speech_flag = False
+        rospy.loginfo("text_or_speech_flag set to: %s", self.text_or_speech_flag)
+
 
